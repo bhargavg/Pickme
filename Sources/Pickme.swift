@@ -48,7 +48,6 @@ public class Pickme: NSObject {
                 return
         }
         
-        let sectionInset = delegate.collectionView!(collectionView, layout: collectionView.collectionViewLayout, insetForSectionAtIndex: 0)
         let itemSpacing = delegate.collectionView!(collectionView, layout: collectionView.collectionViewLayout, minimumInteritemSpacingForSectionAtIndex: 0)
         let itemSize = delegate.collectionView!(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAtIndexPath: NSIndexPath(forItem: index, inSection: 0))
         
