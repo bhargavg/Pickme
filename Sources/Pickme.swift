@@ -14,7 +14,7 @@ public class Pickme: NSObject {
     let config: Configuration
     weak var collectionView: UICollectionView?
     var items: [String]
-    var selectedIndex: Int
+    public private(set) var selectedIndex: Int
     
     convenience public init(with view: UICollectionView, items: [String], @noescape configurator: (inout Configuration) -> ()) {
         var configuration = Configuration()
