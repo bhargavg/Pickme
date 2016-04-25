@@ -14,6 +14,7 @@ public class Pickme: NSObject {
     let config: Configuration
     weak var collectionView: UICollectionView?
     var items: [String]
+    var selectedIndex: Int
     
     convenience public init(with view: UICollectionView, items: [String], @noescape configurator: (inout Configuration) -> ()) {
         var configuration = Configuration()
@@ -25,10 +26,14 @@ public class Pickme: NSObject {
         config = configuration
         collectionView = view
         items = models
+        selectedIndex = 0
         
         super.init()
         
-        collectionView?.collectionViewLayout = Layout(with: config)
+        let layout = Layout(configuration: config)
+        layout.delegate = self;
+        
+        collectionView?.collectionViewLayout = layout
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
@@ -43,16 +48,9 @@ public class Pickme: NSObject {
     }
     
     public func selectItem(atIndex index: Int) {
-        guard let collectionView = collectionView,
-            let delegate = collectionView.delegate as? UICollectionViewDelegateFlowLayout else {
-                return
-        }
-        
-        let itemSpacing = delegate.collectionView!(collectionView, layout: collectionView.collectionViewLayout, minimumInteritemSpacingForSectionAtIndex: 0)
-        let itemSize = delegate.collectionView!(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAtIndexPath: NSIndexPath(forItem: index, inSection: 0))
-        
-        let row = CGFloat(index)
-        collectionView.contentOffset = CGPoint(x: (row  * itemSize.width) + (row * itemSpacing), y: 0)
+        let indexPath = NSIndexPath(forItem: index, inSection: 0)
+        collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+        selectedIndex = index
     }
 }
 
@@ -75,6 +73,10 @@ extension Pickme: UICollectionViewDataSource {
         
         return cell
     }
+    
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.selectItem(atIndex: indexPath.row)
+    }
 }
 
 extension Pickme: UICollectionViewDelegateFlowLayout {
@@ -89,5 +91,12 @@ extension Pickme: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         return config.itemSpacing
+    }
+}
+
+
+extension Pickme: Delegate {
+    func itemSelected(atIndex index: Int) {
+        selectedIndex = index
     }
 }

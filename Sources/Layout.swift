@@ -15,8 +15,9 @@ final class Layout: UICollectionViewFlowLayout {
     var cachedAttributes = [LayoutAttributes]()
     var contentSize = CGSize()
     let config: Configuration
+    weak var delegate: Delegate?
     
-    init(with configuration: Configuration) {
+    init(configuration: Configuration) {
         config = configuration
         super.init()
         scrollDirection = .Horizontal
@@ -141,6 +142,12 @@ final class Layout: UICollectionViewFlowLayout {
         if let attributes = candidateAttributes {
             selectedIndexPath = attributes.indexPath
             // Great, we have a candidate
+            
+            if let delegate = delegate,
+               let row = selectedIndexPath?.row {
+                delegate.itemSelected(atIndex: row)
+            }
+            
             return CGPoint(x: attributes.center.x - collectionViewSize.width * 0.5, y: proposedContentOffset.y)
         } else {
             // Fallback
