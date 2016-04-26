@@ -47,9 +47,10 @@ public class Pickme: NSObject {
         collectionView?.reloadData()
     }
     
-    public func selectItem(atIndex index: Int) {
+    public func selectItem(at index: Int, animation: Bool = true) {
         let indexPath = NSIndexPath(forItem: index, inSection: 0)
-        collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+        collectionView?.layoutIfNeeded() // Trigger the layout
+        collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: animation)
         selectedIndex = index
     }
 }
@@ -75,7 +76,7 @@ extension Pickme: UICollectionViewDataSource {
     }
     
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.selectItem(atIndex: indexPath.row)
+        self.selectItem(at: indexPath.row)
     }
 }
 

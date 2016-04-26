@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MultiItemScaleViewController.swift
 //  Example
 //
 //  Created by Bhargav Gurlanka on 4/23/16.
@@ -9,7 +9,7 @@
 import UIKit
 import Pickme
 
-class ViewController: UIViewController {
+final class MultiItemScaleViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var picker: Pickme!
@@ -24,6 +24,8 @@ class ViewController: UIViewController {
             config.itemSize = CGSize(width: 100.0, height: 100.0)
             config.flowDistance = 200.0
         }
+        
+        picker.selectItem(at: 29)
     }
 
     override func didReceiveMemoryWarning() {
