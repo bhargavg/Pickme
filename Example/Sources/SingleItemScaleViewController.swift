@@ -21,8 +21,8 @@ final class SingleItemScaleViewController: UIViewController {
         
         picker = Pickme(with: collectionView, items: items) { config in
             config.itemSpacing = 10.0
-            config.itemSize = CGSize(width: 100.0, height: 100.0)
-            config.flowDistance = 100.0
+            config.itemSize = CGSize(width: 50.0, height: 50.0)
+            config.flowDistance = 90.0
         }
         
         picker.selectItem(at: 9, animation: false)

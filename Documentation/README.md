@@ -26,6 +26,9 @@ public struct Configuration {
 }
 ```
 
+`flowDistance` parameter is an important configuration parameter that defines how your items will be scaled. It is the distance from center of collection view on either side. The item will participate in scaling, only if its center lies with in flowDistance from center of collection view.
+
+
 # API
 ### Initializers
 Pickme can be initialized in following ways:
@@ -54,3 +57,6 @@ Reloads table view with new items
 
 ### `selectItem(at:animation:)`
 Selects the item at index with optional animation. Default value for animation is `true`.
+
+### `selectedIndex`
+Get the index of selected item
