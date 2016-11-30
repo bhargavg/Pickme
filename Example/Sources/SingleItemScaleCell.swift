@@ -13,21 +13,21 @@ class SingleItemScaleCell: UICollectionViewCell, PickmeCell {
     
     @IBOutlet weak var label: UILabel!
     
-    func render(model: String, at: NSIndexPath) {
+    func render(_ model: String, at: IndexPath) {
         label.text = model
         
-        backgroundColor = .lightGrayColor()
-        layer.contentsScale = UIScreen.mainScreen().scale
+        backgroundColor = .lightGray
+        layer.contentsScale = UIScreen.main.scale
         layer.masksToBounds = false
         layer.shadowOpacity = 0.75;
         layer.shadowRadius = 5.0;
-        layer.shadowOffset = CGSizeZero;
-        layer.shadowPath = UIBezierPath(rect: bounds).CGPath
+        layer.shadowOffset = CGSize.zero;
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         
     }
     
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.applyLayoutAttributes(layoutAttributes)
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
         
         guard let attr = layoutAttributes as? LayoutAttributes else {
             return

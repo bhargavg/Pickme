@@ -13,12 +13,12 @@ class SimplePickerCell: UICollectionViewCell, PickmeCell {
     
     @IBOutlet weak var label: UILabel!
     
-    func render(model: String, at: NSIndexPath) {
+    func render(_ model: String, at: IndexPath) {
         label.text = model
     }
     
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.applyLayoutAttributes(layoutAttributes)
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
         
         guard let attr = layoutAttributes as? LayoutAttributes else {
             return
