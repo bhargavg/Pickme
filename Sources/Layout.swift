@@ -11,7 +11,7 @@ import UIKit
 
 final class Layout: UICollectionViewFlowLayout {
     
-    var selectedIndexPath: NSIndexPath?
+    var selectedIndexPath: IndexPath?
     var cachedAttributes = [LayoutAttributes]()
     var contentSize = CGSize()
     let config: Configuration
@@ -20,18 +20,18 @@ final class Layout: UICollectionViewFlowLayout {
     init(configuration: Configuration) {
         config = configuration
         super.init()
-        scrollDirection = .Horizontal
+        scrollDirection = .horizontal
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override class func layoutAttributesClass() -> AnyClass {
+    override class var layoutAttributesClass : AnyClass {
         return LayoutAttributes.self
     }
     
-    override func prepareLayout() {
+    override func prepare() {
         guard let collectionView = collectionView,
             let delegate = collectionView.delegate as? UICollectionViewDelegateFlowLayout,
             let dataSource = collectionView.dataSource else {
@@ -39,14 +39,14 @@ final class Layout: UICollectionViewFlowLayout {
         }
         
         let itemsCount = dataSource.collectionView(collectionView, numberOfItemsInSection: 0)
-        let sectionInset = delegate.collectionView!(collectionView, layout: self, insetForSectionAtIndex: 0)
+        let sectionInset = delegate.collectionView!(collectionView, layout: self, insetForSectionAt: 0)
         let itemSpacing = config.itemSpacing
         var itemsWidth = CGFloat()
         
         let attributes: [LayoutAttributes] = (0..<itemsCount).map { row in
-            let indexPath = NSIndexPath(forItem: row, inSection: 0)
-            let attribute = LayoutAttributes(forCellWithIndexPath: indexPath)
-            let itemSize = delegate.collectionView!(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAtIndexPath: attribute.indexPath)
+            let indexPath = IndexPath(item: row, section: 0)
+            let attribute = LayoutAttributes(forCellWith: indexPath)
+            let itemSize = delegate.collectionView!(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: attribute.indexPath)
             
             let itemOriginX = sectionInset.left + (CGFloat(row) * itemSize.width) + (CGFloat(row) * itemSpacing)
             let itemOriginY = (collectionView.frame.size.height / 2) - (itemSize.height / 2)
@@ -65,12 +65,12 @@ final class Layout: UICollectionViewFlowLayout {
         contentSize = CGSize(width: width, height: height)
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let row = indexPath.row
         return row < cachedAttributes.count ? cachedAttributes[row] : nil
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let collectionView = collectionView else {
             return nil
         }
@@ -86,7 +86,7 @@ final class Layout: UICollectionViewFlowLayout {
             let factor = 1.0 - min(absDistance / config.flowDistance, 1.0)
             let normalizedScale = config.minScale + ((config.maxScale - config.minScale) * factor)
             
-            attribute.transform = CGAffineTransformMakeScale(normalizedScale, normalizedScale)
+            attribute.transform = CGAffineTransform(scaleX: normalizedScale, y: normalizedScale)
             attribute.zIndex = Int(20 * normalizedScale)
             attribute.scaleFactor = normalizedScale
             
@@ -96,7 +96,7 @@ final class Layout: UICollectionViewFlowLayout {
         return modifiedAttributes
     }
 
-    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         let collectionViewSize = self.collectionView!.bounds.size
         let proposedContentOffsetCenterX = proposedContentOffset.x + collectionViewSize.width * 0.5
         
@@ -106,9 +106,9 @@ final class Layout: UICollectionViewFlowLayout {
         // let proposedRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionViewSize.width, height: collectionViewSize.height)
         
         var candidateAttributes: UICollectionViewLayoutAttributes?
-        for attributes in self.layoutAttributesForElementsInRect(proposedRect)! {
+        for attributes in self.layoutAttributesForElements(in: proposedRect)! {
             // == Skip comparison with non-cell items (headers and footers) == //
-            if attributes.representedElementCategory != .Cell {
+            if attributes.representedElementCategory != .cell {
                 continue
             }
             
@@ -152,15 +152,15 @@ final class Layout: UICollectionViewFlowLayout {
         } else {
             // Fallback
             selectedIndexPath = nil
-            return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
+            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
         }
     }
     
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize : CGSize {
         return contentSize
     }
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
 }

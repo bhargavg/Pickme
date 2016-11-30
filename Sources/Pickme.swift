@@ -9,14 +9,14 @@
 import UIKit
 
 
-public class Pickme: NSObject {
+open class Pickme: NSObject {
     
     let config: Configuration
     weak var collectionView: UICollectionView?
     var items: [String]
-    public private(set) var selectedIndex: Int
+    open fileprivate(set) var selectedIndex: Int
     
-    convenience public init(with view: UICollectionView, items: [String], @noescape configurator: (inout Configuration) -> ()) {
+    convenience public init(with view: UICollectionView, items: [String], configurator: (inout Configuration) -> ()) {
         var configuration = Configuration()
         configurator(&configuration)
         self.init(with: view, items: items, configuration: configuration)
@@ -42,30 +42,30 @@ public class Pickme: NSObject {
         }
     }
     
-    public func reload(withItems newItems: [String]) {
+    open func reload(withItems newItems: [String]) {
         items = newItems
         collectionView?.reloadData()
     }
     
-    public func selectItem(at index: Int, animation: Bool = true) {
-        let indexPath = NSIndexPath(forItem: index, inSection: 0)
+    open func selectItem(at index: Int, animation: Bool = true) {
+        let indexPath = IndexPath(item: index, section: 0)
         collectionView?.layoutIfNeeded() // Trigger the layout
-        collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: animation)
+        collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animation)
         selectedIndex = index
     }
 }
 
 extension Pickme: UICollectionViewDataSource {
-    public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
-    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(config.cellIdentifier, forIndexPath: indexPath)
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: config.cellIdentifier, for: indexPath)
         
         if let pickerCell = cell as? PickmeCell {
             let model = items[indexPath.row]
@@ -75,22 +75,22 @@ extension Pickme: UICollectionViewDataSource {
         return cell
     }
     
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectItem(at: indexPath.row)
     }
 }
 
 extension Pickme: UICollectionViewDelegateFlowLayout {
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return config.itemSize
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let inset = (collectionView.frame.size.width - config.itemSize.width)/2
         return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return config.itemSpacing
     }
 }
