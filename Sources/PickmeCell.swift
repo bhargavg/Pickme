@@ -7,5 +7,5 @@
 //
 
 public protocol PickmeCell {
-    func render(model: String, at: NSIndexPath)
+    func render(_ model: String, at: IndexPath)
 }

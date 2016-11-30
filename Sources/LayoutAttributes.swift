@@ -12,14 +12,14 @@ public final class LayoutAttributes: UICollectionViewLayoutAttributes {
     
     public var scaleFactor: CGFloat = 0
     
-    override public func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = super.copyWithZone(zone) as! LayoutAttributes
+    override public func copy(with zone: NSZone?) -> Any {
+        let copy = super.copy(with: zone) as! LayoutAttributes
         copy.scaleFactor = scaleFactor
         return copy
     }
     
-    override public func isEqual(object: AnyObject?) -> Bool {
-        guard let attribute = object as? LayoutAttributes where super.isEqual(object) else {
+    override public func isEqual(_ object: Any?) -> Bool {
+        guard let attribute = object as? LayoutAttributes, super.isEqual(object) else {
             return false
         }
         
