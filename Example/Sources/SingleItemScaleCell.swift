@@ -21,7 +21,7 @@ class SingleItemScaleCell: UICollectionViewCell, PickmeCell {
         layer.masksToBounds = false
         layer.shadowOpacity = 0.75;
         layer.shadowRadius = 5.0;
-        layer.shadowOffset = CGSize.zero;
+        layer.shadowOffset = .zero;
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         
     }
