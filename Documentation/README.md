@@ -1,3 +1,14 @@
+# Presenter
+`Presenter` is a simple protocol defined as:
+```swift
+public protocol Presenter {
+    associatedtype CellType
+    associatedtype ModelType
+
+    func render(cell: CellType, with: ModelType, at: IndexPath)
+}
+```
+
 # Configuration
 Pickme can be configured by using `Configuration` object.
 ```swift
@@ -35,12 +46,12 @@ Pickme can be initialized in following ways:
 
 ```swift
 // Initialize with default configuration
-Pickme(with: collectionView, items: ["a", "b"])
+Pickme(with: collectionView, items: ["a", "b"], presenter: CustomPresenter())
 ```
 
 ```swift
 // Initialize with configuration block
-Pickme(with: collectionView, items: ["a", "b"]) { config in
+Pickme(with: collectionView, items: ["a", "b"], presenter: CustomPresenter()) { config in
   config.itemSpacing = 15.0
   config.itemSize = CGSize(width: 50.0, height: 50.0)
   config.flowDistance = 50.0
@@ -49,10 +60,10 @@ Pickme(with: collectionView, items: ["a", "b"]) { config in
 
 ```swift
 // Initialize with existing configuration
-Pickme(with: collectionView, items: ["a", "b"], configuration: configuarion)
+Pickme(with: collectionView, items: ["a", "b"], presenter: CustomPresenter(), configuration: configuarion)
 ```
 
-### `reload(withItems: [String])`
+### `reload(withItems:)`
 Reloads table view with new items
 
 ### `selectItem(at:animation:)`
