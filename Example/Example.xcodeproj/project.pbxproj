@@ -18,9 +18,9 @@
 		7CEB9CEA1CCE8F6800ADB223 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CE91CCE8F6800ADB223 /* CarouselCell.swift */; };
 		7CEB9CEC1CCE908C00ADB223 /* SimplePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CEB1CCE908C00ADB223 /* SimplePickerViewController.swift */; };
 		7CEB9CEF1CCE90CE00ADB223 /* SimplePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CEE1CCE90CE00ADB223 /* SimplePickerCell.swift */; };
-		7CEB9CF11CCE95A300ADB223 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CEB9CF01CCE95A300ADB223 /* background.jpg */; };
 		BA1C20D41E687B210049F426 /* CarouselPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1C20D31E687B210049F426 /* CarouselPresenter.swift */; };
 		BA1C20DA1E687C630049F426 /* SimplePickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1C20D91E687C630049F426 /* SimplePickerPresenter.swift */; };
+		BA1C20DC1E68842C0049F426 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA1C20DB1E68842C0049F426 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +66,9 @@
 		7CEB9CE91CCE8F6800ADB223 /* CarouselCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselCell.swift; path = Sources/CarouselCell.swift; sourceTree = "<group>"; };
 		7CEB9CEB1CCE908C00ADB223 /* SimplePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePickerViewController.swift; path = Sources/SimplePickerViewController.swift; sourceTree = "<group>"; };
 		7CEB9CEE1CCE90CE00ADB223 /* SimplePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePickerCell.swift; path = Sources/SimplePickerCell.swift; sourceTree = "<group>"; };
-		7CEB9CF01CCE95A300ADB223 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Sources/Resources/background.jpg; sourceTree = "<group>"; };
 		BA1C20D31E687B210049F426 /* CarouselPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselPresenter.swift; path = Sources/CarouselPresenter.swift; sourceTree = "<group>"; };
 		BA1C20D91E687C630049F426 /* SimplePickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePickerPresenter.swift; path = Sources/SimplePickerPresenter.swift; sourceTree = "<group>"; };
+		BA1C20DB1E68842C0049F426 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Sources/Resources/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				7CB99ACC1CCBC6E600E667DC /* Sources */,
-				7CEB9CF21CCE95A600ADB223 /* Resources */,
 				7CB99AD01CCBC74C00E667DC /* Libraries */,
 				7CB99ACF1CCBC73300E667DC /* Support */,
 				7CB99AA91CCBC6B300E667DC /* Products */,
@@ -108,6 +107,7 @@
 				7CB99AC21CCBC6DF00E667DC /* Main.storyboard */,
 				7CEB9CE81CCE8F1900ADB223 /* Carousel */,
 				7CEB9CED1CCE909300ADB223 /* Simple Picker */,
+				BA1C20DB1E68842C0049F426 /* Images.xcassets */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -157,14 +157,6 @@
 				7CEB9CEE1CCE90CE00ADB223 /* SimplePickerCell.swift */,
 			);
 			name = "Simple Picker";
-			sourceTree = "<group>";
-		};
-		7CEB9CF21CCE95A600ADB223 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7CEB9CF01CCE95A300ADB223 /* background.jpg */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB99ACA1CCBC6DF00E667DC /* Info.plist in Resources */,
-				7CEB9CF11CCE95A300ADB223 /* background.jpg in Resources */,
 				7CB99AC71CCBC6DF00E667DC /* Assets.xcassets in Resources */,
+				BA1C20DC1E68842C0049F426 /* Images.xcassets in Resources */,
 				7CB99ACD1CCBC71700E667DC /* LaunchScreen.storyboard in Resources */,
 				7CB99ACE1CCBC71B00E667DC /* Main.storyboard in Resources */,
 			);

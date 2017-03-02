@@ -12,12 +12,18 @@ import Pickme
 final class CarouselViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var picker: Pickme<CarouselCell, String, CarouselPresenter>!
+    var picker: Pickme<CarouselCell, UIImage, CarouselPresenter>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let items = (10...99).map(String.init)
+        let items = [
+            #imageLiteral(resourceName: "bingsu"),
+            #imageLiteral(resourceName: "candle"),
+            #imageLiteral(resourceName: "duck"),
+            #imageLiteral(resourceName: "heart"),
+            #imageLiteral(resourceName: "rooftop")
+        ]
         
         picker = Pickme(with: collectionView, items: items, presenter: CarouselPresenter()) { config in
             config.itemSpacing = 10.0
@@ -25,7 +31,7 @@ final class CarouselViewController: UIViewController {
             config.flowDistance = 200.0
         }
         
-        picker.selectItem(at: 9, animation: false)
+        picker.selectItem(at: 3, animation: false)
 
     }
     

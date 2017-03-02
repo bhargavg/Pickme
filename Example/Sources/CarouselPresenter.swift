@@ -10,7 +10,7 @@ import UIKit
 import Pickme
 
 struct CarouselPresenter: Presenter {
-    func render(cell: CarouselCell, with model: String, at: IndexPath) {
-        cell.label.text = model
+    func render(cell: CarouselCell, with image: UIImage, at: IndexPath) {
+        cell.imageView.image = image
     }
 }
