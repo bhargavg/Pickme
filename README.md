@@ -10,7 +10,7 @@ Pickme turns your boring `UICollectionView` into an awesome 3D picker view.
 ![Simple Picker](Documentation/gifs/simple_picker.gif)
 
 ## Documentation
-You can find more documentation [here](/Documentation/api.md)
+You can find more documentation [here](/Documentation/README.md)
 
 ## Todo:
 - [ ] CocoaPods Support
