@@ -11,9 +11,9 @@
 		7C7FAA671CCBC48000258044 /* Pickme.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C7FAA661CCBC48000258044 /* Pickme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CB99AE11CCBCE6B00E667DC /* Pickme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99AE01CCBCE6B00E667DC /* Pickme.swift */; };
 		7CB99AE31CCCEA7E00E667DC /* LayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99AE21CCCEA7E00E667DC /* LayoutAttributes.swift */; };
-		7CB99AE51CCCEA9C00E667DC /* PickmeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99AE41CCCEA9C00E667DC /* PickmeCell.swift */; };
 		7CB99AE71CCCEAD500E667DC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99AE61CCCEAD500E667DC /* Configuration.swift */; };
 		7CB99AE91CCCEAFD00E667DC /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99AE81CCCEAFD00E667DC /* Layout.swift */; };
+		BA1C20D21E68789C0049F426 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1C20D11E68789C0049F426 /* Presenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,9 +24,9 @@
 		7C7FAA661CCBC48000258044 /* Pickme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Pickme.h; path = Sources/Pickme.h; sourceTree = "<group>"; };
 		7CB99AE01CCBCE6B00E667DC /* Pickme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pickme.swift; path = Sources/Pickme.swift; sourceTree = SOURCE_ROOT; };
 		7CB99AE21CCCEA7E00E667DC /* LayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutAttributes.swift; path = Sources/LayoutAttributes.swift; sourceTree = SOURCE_ROOT; };
-		7CB99AE41CCCEA9C00E667DC /* PickmeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickmeCell.swift; path = Sources/PickmeCell.swift; sourceTree = SOURCE_ROOT; };
 		7CB99AE61CCCEAD500E667DC /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Sources/Configuration.swift; sourceTree = SOURCE_ROOT; };
 		7CB99AE81CCCEAFD00E667DC /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout.swift; path = Sources/Layout.swift; sourceTree = SOURCE_ROOT; };
+		BA1C20D11E68789C0049F426 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Presenter.swift; path = Sources/Presenter.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +62,10 @@
 			isa = PBXGroup;
 			children = (
 				7CB99AE01CCBCE6B00E667DC /* Pickme.swift */,
+				BA1C20D11E68789C0049F426 /* Presenter.swift */,
 				7CB99AE61CCCEAD500E667DC /* Configuration.swift */,
 				7CB99AE81CCCEAFD00E667DC /* Layout.swift */,
 				7CB99AE21CCCEA7E00E667DC /* LayoutAttributes.swift */,
-				7CB99AE41CCCEA9C00E667DC /* PickmeCell.swift */,
 				7C47CA0D1CCDF376002CF603 /* Delegate.swift */,
 			);
 			name = Sources;
@@ -162,11 +162,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C47CA0E1CCDF376002CF603 /* Delegate.swift in Sources */,
+				BA1C20D21E68789C0049F426 /* Presenter.swift in Sources */,
 				7CB99AE31CCCEA7E00E667DC /* LayoutAttributes.swift in Sources */,
 				7CB99AE11CCBCE6B00E667DC /* Pickme.swift in Sources */,
 				7CB99AE91CCCEAFD00E667DC /* Layout.swift in Sources */,
 				7CB99AE71CCCEAD500E667DC /* Configuration.swift in Sources */,
-				7CB99AE51CCCEA9C00E667DC /* PickmeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

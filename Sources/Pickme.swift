@@ -9,24 +9,26 @@
 import UIKit
 
 
-open class Pickme: NSObject {
+open class Pickme<CellType, ModelType, PresenterType: Presenter>: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout where PresenterType.CellType == CellType, PresenterType.ModelType == ModelType{
     
     let config: Configuration
     weak var collectionView: UICollectionView?
-    var items: [String]
+    var items: [ModelType]
+    let presenter: PresenterType
     open fileprivate(set) var selectedIndex: Int
     
-    convenience public init(with view: UICollectionView, items: [String], configurator: (inout Configuration) -> ()) {
+    convenience public init(with view: UICollectionView, items: [ModelType], presenter: PresenterType, configurator: (inout Configuration) -> ()) {
         var configuration = Configuration()
         configurator(&configuration)
-        self.init(with: view, items: items, configuration: configuration)
+        self.init(with: view, items: items, presenter: presenter, configuration: configuration)
     }
     
-    public init(with view: UICollectionView, items models: [String], configuration: Configuration = Configuration()) {
-        config = configuration
-        collectionView = view
-        items = models
-        selectedIndex = 0
+    public init(with view: UICollectionView, items models: [ModelType], presenter: PresenterType, configuration: Configuration = Configuration()) {
+        self.config = configuration
+        self.collectionView = view
+        self.items = models
+        self.selectedIndex = 0
+        self.presenter = presenter
         
         super.init()
         
@@ -42,7 +44,7 @@ open class Pickme: NSObject {
         }
     }
     
-    open func reload(withItems newItems: [String]) {
+    open func reload(withItems newItems: [ModelType]) {
         items = newItems
         collectionView?.reloadData()
     }
@@ -53,9 +55,7 @@ open class Pickme: NSObject {
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animation)
         selectedIndex = index
     }
-}
 
-extension Pickme: UICollectionViewDataSource {
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -66,10 +66,10 @@ extension Pickme: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: config.cellIdentifier, for: indexPath)
-        
-        if let pickerCell = cell as? PickmeCell {
-            let model = items[indexPath.row]
-            pickerCell.render(model, at: indexPath)
+        let model = items[indexPath.row]
+
+        if let cell = cell as? CellType {
+            presenter.render(cell: cell, with: model, at: indexPath)
         }
         
         return cell
@@ -78,9 +78,7 @@ extension Pickme: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectItem(at: indexPath.row)
     }
-}
 
-extension Pickme: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return config.itemSize
     }
