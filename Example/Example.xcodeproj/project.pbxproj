@@ -10,17 +10,17 @@
 		7CB99AC61CCBC6DF00E667DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99ABD1CCBC6DF00E667DC /* AppDelegate.swift */; };
 		7CB99AC71CCBC6DF00E667DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB99ABE1CCBC6DF00E667DC /* Assets.xcassets */; };
 		7CB99ACA1CCBC6DF00E667DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CB99AC41CCBC6DF00E667DC /* Info.plist */; };
-		7CB99ACB1CCBC6DF00E667DC /* MultiItemScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99AC51CCBC6DF00E667DC /* MultiItemScaleViewController.swift */; };
 		7CB99ACD1CCBC71700E667DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB99AC01CCBC6DF00E667DC /* LaunchScreen.storyboard */; };
 		7CB99ACE1CCBC71B00E667DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB99AC21CCBC6DF00E667DC /* Main.storyboard */; };
-		7CB99AD81CCBC82800E667DC /* MultiItemScaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB99AD71CCBC82800E667DC /* MultiItemScaleCell.swift */; };
 		7CB99ADB1CCBCB6200E667DC /* Pickme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB99AD61CCBC75800E667DC /* Pickme.framework */; };
 		7CB99ADC1CCBCB6200E667DC /* Pickme.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB99AD61CCBC75800E667DC /* Pickme.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7CEB9CE71CCE8F1500ADB223 /* SingleItemScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CE61CCE8F1500ADB223 /* SingleItemScaleViewController.swift */; };
-		7CEB9CEA1CCE8F6800ADB223 /* SingleItemScaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CE91CCE8F6800ADB223 /* SingleItemScaleCell.swift */; };
+		7CEB9CE71CCE8F1500ADB223 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CE61CCE8F1500ADB223 /* CarouselViewController.swift */; };
+		7CEB9CEA1CCE8F6800ADB223 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CE91CCE8F6800ADB223 /* CarouselCell.swift */; };
 		7CEB9CEC1CCE908C00ADB223 /* SimplePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CEB1CCE908C00ADB223 /* SimplePickerViewController.swift */; };
 		7CEB9CEF1CCE90CE00ADB223 /* SimplePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB9CEE1CCE90CE00ADB223 /* SimplePickerCell.swift */; };
 		7CEB9CF11CCE95A300ADB223 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CEB9CF01CCE95A300ADB223 /* background.jpg */; };
+		BA1C20D41E687B210049F426 /* CarouselPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1C20D31E687B210049F426 /* CarouselPresenter.swift */; };
+		BA1C20DA1E687C630049F426 /* SimplePickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1C20D91E687C630049F426 /* SimplePickerPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,14 +61,14 @@
 		7CB99AC11CCBC6DF00E667DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB99AC31CCBC6DF00E667DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		7CB99AC41CCBC6DF00E667DC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
-		7CB99AC51CCBC6DF00E667DC /* MultiItemScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiItemScaleViewController.swift; path = Sources/MultiItemScaleViewController.swift; sourceTree = "<group>"; };
 		7CB99AD11CCBC75700E667DC /* Pickme.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pickme.xcodeproj; path = ../Pickme.xcodeproj; sourceTree = "<group>"; };
-		7CB99AD71CCBC82800E667DC /* MultiItemScaleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiItemScaleCell.swift; path = Sources/MultiItemScaleCell.swift; sourceTree = "<group>"; };
-		7CEB9CE61CCE8F1500ADB223 /* SingleItemScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleItemScaleViewController.swift; path = Sources/SingleItemScaleViewController.swift; sourceTree = "<group>"; };
-		7CEB9CE91CCE8F6800ADB223 /* SingleItemScaleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleItemScaleCell.swift; path = Sources/SingleItemScaleCell.swift; sourceTree = "<group>"; };
+		7CEB9CE61CCE8F1500ADB223 /* CarouselViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselViewController.swift; path = Sources/CarouselViewController.swift; sourceTree = "<group>"; };
+		7CEB9CE91CCE8F6800ADB223 /* CarouselCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselCell.swift; path = Sources/CarouselCell.swift; sourceTree = "<group>"; };
 		7CEB9CEB1CCE908C00ADB223 /* SimplePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePickerViewController.swift; path = Sources/SimplePickerViewController.swift; sourceTree = "<group>"; };
 		7CEB9CEE1CCE90CE00ADB223 /* SimplePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePickerCell.swift; path = Sources/SimplePickerCell.swift; sourceTree = "<group>"; };
 		7CEB9CF01CCE95A300ADB223 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Sources/Resources/background.jpg; sourceTree = "<group>"; };
+		BA1C20D31E687B210049F426 /* CarouselPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselPresenter.swift; path = Sources/CarouselPresenter.swift; sourceTree = "<group>"; };
+		BA1C20D91E687C630049F426 /* SimplePickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePickerPresenter.swift; path = Sources/SimplePickerPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB99AC21CCBC6DF00E667DC /* Main.storyboard */,
-				7CEB9CE81CCE8F1900ADB223 /* Single */,
-				7CEB9CE51CCE8E3B00ADB223 /* Multi */,
+				7CEB9CE81CCE8F1900ADB223 /* Carousel */,
 				7CEB9CED1CCE909300ADB223 /* Simple Picker */,
 			);
 			name = Sources;
@@ -140,28 +139,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7CEB9CE51CCE8E3B00ADB223 /* Multi */ = {
+		7CEB9CE81CCE8F1900ADB223 /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
-				7CB99AC51CCBC6DF00E667DC /* MultiItemScaleViewController.swift */,
-				7CB99AD71CCBC82800E667DC /* MultiItemScaleCell.swift */,
+				7CEB9CE61CCE8F1500ADB223 /* CarouselViewController.swift */,
+				BA1C20D31E687B210049F426 /* CarouselPresenter.swift */,
+				7CEB9CE91CCE8F6800ADB223 /* CarouselCell.swift */,
 			);
-			name = Multi;
-			sourceTree = "<group>";
-		};
-		7CEB9CE81CCE8F1900ADB223 /* Single */ = {
-			isa = PBXGroup;
-			children = (
-				7CEB9CE61CCE8F1500ADB223 /* SingleItemScaleViewController.swift */,
-				7CEB9CE91CCE8F6800ADB223 /* SingleItemScaleCell.swift */,
-			);
-			name = Single;
+			name = Carousel;
 			sourceTree = "<group>";
 		};
 		7CEB9CED1CCE909300ADB223 /* Simple Picker */ = {
 			isa = PBXGroup;
 			children = (
 				7CEB9CEB1CCE908C00ADB223 /* SimplePickerViewController.swift */,
+				BA1C20D91E687C630049F426 /* SimplePickerPresenter.swift */,
 				7CEB9CEE1CCE90CE00ADB223 /* SimplePickerCell.swift */,
 			);
 			name = "Simple Picker";
@@ -267,12 +259,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CB99ACB1CCBC6DF00E667DC /* MultiItemScaleViewController.swift in Sources */,
-				7CEB9CEA1CCE8F6800ADB223 /* SingleItemScaleCell.swift in Sources */,
+				7CEB9CEA1CCE8F6800ADB223 /* CarouselCell.swift in Sources */,
+				BA1C20D41E687B210049F426 /* CarouselPresenter.swift in Sources */,
 				7CB99AC61CCBC6DF00E667DC /* AppDelegate.swift in Sources */,
-				7CB99AD81CCBC82800E667DC /* MultiItemScaleCell.swift in Sources */,
 				7CEB9CEF1CCE90CE00ADB223 /* SimplePickerCell.swift in Sources */,
-				7CEB9CE71CCE8F1500ADB223 /* SingleItemScaleViewController.swift in Sources */,
+				BA1C20DA1E687C630049F426 /* SimplePickerPresenter.swift in Sources */,
+				7CEB9CE71CCE8F1500ADB223 /* CarouselViewController.swift in Sources */,
 				7CEB9CEC1CCE908C00ADB223 /* SimplePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

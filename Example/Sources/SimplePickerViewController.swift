@@ -12,14 +12,14 @@ import Pickme
 class SimplePickerViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var picker: Pickme!
+    var picker: Pickme<SimplePickerCell, String, SimplePickerPresenter>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let items = (10...99).map(String.init)
         
-        picker = Pickme(with: collectionView, items: items)
+        picker = Pickme(with: collectionView, items: items, presenter: SimplePickerPresenter())
         
         picker.selectItem(at: 5)
     }

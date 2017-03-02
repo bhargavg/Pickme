@@ -9,7 +9,7 @@
 import UIKit
 import Pickme
 
-class SimplePickerCell: UICollectionViewCell, PickmeCell {
+class SimplePickerCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
     

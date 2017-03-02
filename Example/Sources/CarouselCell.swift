@@ -1,5 +1,5 @@
 //
-//  SingleItemScaleCell.swift
+//  CarouselCell.swift
 //  Example
 //
 //  Created by Bhargav Gurlanka on 4/25/16.
@@ -9,21 +9,17 @@
 import UIKit
 import Pickme
 
-class SingleItemScaleCell: UICollectionViewCell, PickmeCell {
+class CarouselCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
-    
-    func render(_ model: String, at: IndexPath) {
-        label.text = model
-        
+
+    override func awakeFromNib() {
         backgroundColor = .lightGray
         layer.contentsScale = UIScreen.main.scale
         layer.masksToBounds = false
         layer.shadowOpacity = 0.75;
         layer.shadowRadius = 5.0;
         layer.shadowOffset = .zero;
-        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
-        
     }
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
@@ -34,6 +30,7 @@ class SingleItemScaleCell: UICollectionViewCell, PickmeCell {
         }
         
         label.alpha = 0.5 + (attr.scaleFactor - 1.0) / 2
-        
+
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
     }
 }
