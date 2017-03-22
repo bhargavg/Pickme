@@ -14,6 +14,7 @@ open class Pickme<CellType, ModelType, PresenterType: Presenter>: NSObject, UICo
     let config: Configuration
     weak var collectionView: UICollectionView?
     var items: [ModelType]
+    public weak var delegate: Delegate?
     let presenter: PresenterType
     open fileprivate(set) var selectedIndex: Int
     
@@ -95,7 +96,8 @@ open class Pickme<CellType, ModelType, PresenterType: Presenter>: NSObject, UICo
 
 
 extension Pickme: Delegate {
-    func itemSelected(atIndex index: Int) {
+    public func itemSelected(atIndex index: Int) {
         selectedIndex = index
+        delegate?.itemSelected(atIndex: index)
     }
 }

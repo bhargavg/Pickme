@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Delegate: class {
+public protocol Delegate: class {
     func itemSelected(atIndex index: Int)
 }
