@@ -9,11 +9,21 @@
 import UIKit
 
 public struct Configuration {
-    public var minScale: CGFloat = 1.0
-    public var maxScale: CGFloat = 2.0
-    public var itemSpacing: CGFloat = 10.0
-    public var itemSize: CGSize = CGSize(width: 50, height: 50)
-    public var cellIdentifier: String = "Cell"
-    public var hideScrollbar: Bool = true
-    public var flowDistance: CGFloat = 50.0
+    public var minScale: CGFloat
+    public var maxScale: CGFloat
+    public var itemSpacing: CGFloat
+    public var itemSize: CGSize
+    public var cellIdentifier: String
+    public var hideScrollbar: Bool
+    public var flowDistance: CGFloat
+
+    public init() {
+        minScale = 1.0
+        maxScale = 2.0
+        itemSpacing = 10.0
+        itemSize = CGSize(width: 50, height: 50)
+        cellIdentifier = "Cell"
+        hideScrollbar = true
+        flowDistance = 50.0
+    }
 }
