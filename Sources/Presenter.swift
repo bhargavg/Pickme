@@ -2,7 +2,7 @@
 //  Presenter.swift
 //  Pickme
 //
-//  Created by Gurlanka, Bhargav (Agoda) on 02/03/17.
+//  Created by Bhargav Gurlanka on 02/03/17.
 //  Copyright © 2017 Bhargav Gurlanka. All rights reserved.
 //
 
